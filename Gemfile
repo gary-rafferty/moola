@@ -6,3 +6,10 @@ gem 'mongo_mapper'
 gem 'bson_ext'
 gem 'sass'
 gem 'bourbon'
+
+group :development, :test do
+  gem 'factory_girl'
+  gem 'minitest', :platforms => :ruby_18
+  gem 'rack-test'
+  gem 'database_cleaner'
+end
