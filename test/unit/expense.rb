@@ -51,6 +51,8 @@ class ExpenseTest < MiniTest::Unit::TestCase
     @expense.recurring = false
     @expense.amount = 15.05
     assert_equal @expense.save, true
+    refute_nil @expense.created_at
+    refute_nil @expense.updated_at
   end
 
   def test_that_expenses_scoped_by_recurring
