@@ -22,16 +22,21 @@ class UserTest < MiniTest::Unit::TestCase
     assert_equal @user.valid?, true
   end
 
-  def test_that_a_password_is_required
+  def test_that_the_password_is_hashed_on_save
     @user.username = 'username'
-    assert_equal @user.valid?, false
     @user.password = 'password'
-    assert_equal @user.valid?, true
+    @user.save
+    persisted_user = User.first(:conditions => {:username => 'username'})
+    refute_nil persisted_user.password_hash
+    refute_nil persisted_user.password_salt
   end
 
-  def test_that_a_valid_user_has_a_username_and_password
+  def test_that_a_user_can_be_authenticated
     @user.username = 'username'
     @user.password = 'password'
-    assert_equal @user.valid?, true
+    @user.save
+    valid_user = User.authenticate('username','password')
+    refute_nil valid_user
+    assert_equal valid_user.username, 'username'
   end
 end

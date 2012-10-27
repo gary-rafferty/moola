@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'mongo_mapper'
+require 'bcrypt'
 
 class Moola < Sinatra::Application
   enable :sessions

@@ -6,6 +6,7 @@ gem 'mongo_mapper'
 gem 'bson_ext'
 gem 'sass'
 gem 'bourbon'
+gem 'bcrypt-ruby', :require => 'bcrypt'
 
 group :development, :test do
   gem 'factory_girl'
