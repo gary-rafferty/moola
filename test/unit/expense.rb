@@ -55,11 +55,27 @@ class ExpenseTest < MiniTest::Unit::TestCase
     refute_nil @expense.updated_at
   end
 
-  def test_that_expenses_scoped_by_recurring
-    skip 'todo'
-  end
+  def test_that_expenses_scoped_by_recurring_and_onceoff
+    @onceoff = Expense.new(
+      when: Time.now,
+      description: 'Onceoff',
+      recurring: false,
+      amount: 15.05
+    )
+    @recurring = Expense.new(
+      when: Time.now,
+      description: 'Recurring',
+      recurring: true,
+      amount: 50.51
+    )
 
-  def test_that_expenses_scoped_by_onceoff
-    skip 'todo'
+    assert @onceoff.save
+    assert @recurring.save
+
+    onceoff_scope = Expense.onceoff.all
+    recurring_scope = Expense.recurring.all
+
+    refute onceoff_scope.sample.recurring
+    assert recurring_scope.sample.recurring
   end
 end
