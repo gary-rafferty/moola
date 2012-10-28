@@ -3,10 +3,12 @@ require 'mongo_mapper'
 require 'bcrypt'
 
 class Moola < Sinatra::Application
-  enable :sessions
 
   configure do
     MongoMapper.database = 'moola'
+
+    enable :sessions
+    set :session_secret, 'd3adb33fc0d3'
   end
 end
 
