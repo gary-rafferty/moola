@@ -1,6 +1,7 @@
 require 'sinatra'
 require 'mongo_mapper'
 require 'bcrypt'
+require 'rack-flash'
 
 class Moola < Sinatra::Application
 
@@ -9,6 +10,8 @@ class Moola < Sinatra::Application
 
     enable :sessions
     set :session_secret, 'd3adb33fc0d3'
+
+    use Rack::Flash
   end
 end
 

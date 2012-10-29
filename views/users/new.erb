@@ -1,5 +1,13 @@
+<h2>Create a Moola account</h2>
+<% if flash[:notice] %>
+  <p><%=flash[:notice]%></p>
+<% end %>
 <form name='users' method='POST' id='users' action='/users/create'>
-  <input type='text' name='username' />
-  <input type='password' name='password' />
-  <input type='Submit' value='Create my account' />
+  <label name='username'>Username</label>
+  <input type='text' name='username' id='username' />
+  <br />
+  <label name='password'>Password</label>
+  <input type='password' name='password' id='password' />
+  <br />
+  <input type='submit' id='submit' value='Create my account' />
 </form>
