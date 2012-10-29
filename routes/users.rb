@@ -21,11 +21,4 @@ class Moola < Sinatra::Application
       redirect 'users/new'
     end
   end
-
-  helpers do
-    #move to model
-    def valid_credentials username,password
-      username.length >= 4 and password.length >= 6
-    end
-  end
 end
