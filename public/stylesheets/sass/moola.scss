@@ -1,3 +1,7 @@
 @import 'bourbon/bourbon';
 @import "neat/neat";
 @import 'reset';
+
+#container {
+  @include outer-container;
+}
