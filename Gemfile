@@ -8,6 +8,7 @@ gem 'sass'
 gem 'bourbon'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rack-flash3'
+gem 'neat'
 
 group :development, :test do
   gem 'factory_girl'
