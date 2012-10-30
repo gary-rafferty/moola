@@ -1,3 +1,5 @@
 Gemfile.lock
 *.swp
 *~
+public/.sass-cache/
+public/stylesheets/.sass-cache/
