@@ -9,6 +9,7 @@ gem 'bourbon'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'rack-flash3'
 gem 'neat'
+gem 'recurrence'
 
 group :development, :test do
   gem 'factory_girl'
